@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        
+        main{
+            width: 100%;
+            height: 100vh;
+            background-image: linear-gradient(45deg, darkblue, rgb(255, 182, 47), rgb(255, 128, 0));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+            position: relative;
+        }
+
+        #_info{
+            width: 60%;
+            height: 60%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        h1,
+        h2{
+            margin-top: 50px;
+            padding-left: 10px;
+        }
+
+
+
+
+
+
+
+        #_popUp{
+            width: 60%;
+            height: 60%;
+            background-color: white;
+            border: 1px solid gray;
+            border-radius: 5px;
+            display: flex;
+            align-content: space-around;
+            justify-content: center;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 1;
+        }
+
+        #_popUp>div:nth-of-type(1){
+            width: 95%;
+            height: 80%;
+            display: flex;
+        }
+
+        #_popUp>div:nth-of-type(2){
+            width: 200px;
+            height: 30px;
+        }
+
+        #_popUp>div:nth-of-type(2)>button{
+            width: 100%;
+            height: 100%;
+            color: black;
+            font-size: 15px;
+            border: 1px solid gray;
+            border-radius: 5px;
+        }
+
+        #_form>div{
+            width: 50%;
+            height: 100%;
+        }
+
+        #_label,
+        #_input{
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-around;
+        }
+
+        #_label>label{
+            width: 75%;
+            height: 12%;
+            display: block;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            font-size: 18px;
+        }
+
+        #_input>input{
+            width: 100%;
+            height: 12%;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            font-size: 18px;
+        }
+
+    </style>
+</head>
+<body>
+    <main>
+        <div id="_info">
+            <h1></h1>
+            <h2>121212</h2>
+        </div>
+        <div id="_popUp">
+            <div id="_form">
+                <div id="_label">
+                    <label for="">Full Name :</label>
+                    <label for="">Year of Birth (سال تولد به میلادی):</label>
+                </div>
+                <div id="_input">
+                    <input id="_name" type="text">
+                    <input id="_birth" type="text">
+                </div>
+            </div>
+            <div>
+                <button id="_btn">Go !</button>
+            </div>
+        </div>
+    </main>
+</body>
+<script>
+
+    // close popup 
+
+    document.getElementById('_btn').addEventListener('click', ()=>{
+        document.getElementById('_popUp').style.display = 'none'
+    })
+
+    // name write 
+
+    document.getElementById('_name').addEventListener('input', (e)=>{
+        document.getElementsByTagName('h1')[0].innerHTML = 'Dear ' + e.target.value + ', welcome to our page !'
+
+    })
+
+    // age calculate 
+
+    document.getElementById('_birth').addEventListener('input', (e)=>{
+        let _number = e.target.value
+        let _lastNumber = 2022 - _number
+        document.getElementsByTagName('h2')[0].innerHTML = 'You are ' + _lastNumber + ' years old . '
+    })
+
+
+</script>
+</html>
